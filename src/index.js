@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Rserve } from '@tmelliott/react-rserve'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Rserve {...{host: 'ws://localhost:8081'}}>
+      <App />
+    </Rserve>
   </React.StrictMode>
 );
 

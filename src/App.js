@@ -1,7 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { useRserve } from '@tmelliott/react-rserve';
+import { useEffect } from 'react';
 
 function App() {
+  const R = useRserve()
+
+  useEffect(() => {
+    if (!R || !R.running) return
+    R.ocap((err, funs) => {
+      funs.rversion((err, value) => {
+        console.log(value)
+      })
+    })
+  }, [R])
+
   return (
     <div className="App">
       <header className="App-header">

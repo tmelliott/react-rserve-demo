@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import { Rserve } from '@tmelliott/react-rserve'
 
+var host = location.origin.replace(/^http/, 'ws');
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

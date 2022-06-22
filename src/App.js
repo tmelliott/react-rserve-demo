@@ -8,6 +8,7 @@ function App() {
 
   useEffect(() => {
     if (!R || !R.running) return
+
     R.ocap((err, funs) => {
       funs.rversion((err, value) => {
         console.log(value)

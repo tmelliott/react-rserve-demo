@@ -9,7 +9,7 @@ import { Rserve } from '@tmelliott/react-rserve'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Rserve {...{host: 'ws://localhost:8081'}}>
+    <Rserve {...{host: 'ws://react-rserve-demo.herokuapp.com'}}>
       <App />
     </Rserve>
   </React.StrictMode>

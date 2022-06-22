@@ -1,14 +1,19 @@
-source('init.R')
+# source('init.R')
 
-port <- as.integer(Sys.getenv("PORT"))
-if (is.na(port)) port <- 8081
+system("killall Rserve")
+
+port <- Sys.getenv("PORT")
+if (port == "") port <- "8081"
 
 message("Connected to PORT:", port)
 
-Rserve::run.Rserve(
-    debug = TRUE,
-    port = port,
-    websockets.port = port,
-    args = NULL,
-    config.file = "rserve.conf"
+Rserve::Rserve(
+    args = c(
+        "--RS-conf", "rserve.conf",
+        "--RS-source", "init.R",
+        "--RS-port", port,
+        "--vanilla",
+        "--no-save",
+        "--silent"
+    )
 )

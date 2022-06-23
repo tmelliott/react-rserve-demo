@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import { Rserve } from '@tmelliott/react-rserve'
+import { Rserve } from "@tmelliott/react-rserve";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Rserve {...{host: 'ws://react-rserve-demo.herokuapp.com'}}>
+    <Rserve {...{ host: "ws://137.184.226.172:8081" }}>
       <App />
     </Rserve>
   </React.StrictMode>

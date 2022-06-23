@@ -9,7 +9,7 @@ import { Rserve } from "@tmelliott/react-rserve";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Rserve {...{ host: "ws://137.184.226.172:8081" }}>
+    <Rserve {...{ host: "ws://137.184.226.172/ws" }}>
       <App />
     </Rserve>
   </React.StrictMode>

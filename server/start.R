@@ -1,8 +1,8 @@
 system("killall Rserve")
 Rserve::Rserve(
     args = c(
-        "--RS-conf", "demo/server/rserve.conf",
-        "--RS-source", "demo/server/init.R",
+        "--RS-conf", "rserve.conf",
+        "--RS-source", "init.R",
         "--vanilla",
         "--no-save",
         "--silent"

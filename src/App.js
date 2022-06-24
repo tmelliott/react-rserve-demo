@@ -7,6 +7,8 @@ function App() {
   const R = useRserve();
   const [version, setVersion] = useState("");
 
+  const [message, setMessage] = useState("")
+
   useEffect(() => {
     if (!R || !R.running) return;
 
@@ -14,6 +16,11 @@ function App() {
       funs.rversion((err, value) => {
         setVersion(value);
       });
+      if (funs.dummy_html) {
+        funs.dummy_html((err, value) => {
+          setMessage(value)
+        })
+      }
     });
   }, [R]);
 
@@ -21,11 +28,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {version != "" ? (
+        {version !== "" ? (
           <p>Connected to R {version}</p>
         ) : (
           <p>Not connected to R</p>
         )}
+        <div dangerouslySetInnerHTML={{__html: message}} />
         <a
           className="App-link"
           href="https://reactjs.org"

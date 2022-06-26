@@ -1,15 +1,13 @@
 import "./App.css";
 import { useRserve } from "@tmelliott/react-rserve";
 import { useEffect, useState } from "react";
+import Clustering from "./components/Clustering";
 
 function App() {
   const R = useRserve();
   const [version, setVersion] = useState("");
 
-  const [clusters, setClusters] = useState(3)
-
   // const [message, setMessage] = useState("")
-  const [plot, setPlot] = useState("");
 
   useEffect(() => {
     if (!R || !R.running) return;
@@ -18,18 +16,8 @@ function App() {
       funs.rversion((err, value) => {
         setVersion(value);
       });
-      // if (funs.dummy_html) {
-      //   funs.dummy_html((err, value) => {
-      //     setMessage(value)
-      //   })
-      // }
-      if (funs.aplot) {
-        funs.aplot(clusters, (err, value) => {
-          setPlot(value)
-        })
-      }
     });
-  }, [R, clusters]);
+  }, [R]);
 
   return (
     <div className="App">
@@ -41,15 +29,7 @@ function App() {
           <p>Not connected to R</p>
         )}
 
-        <img src={plot} className="App-rplot" alt="logo" />
-        <div style={{display: "flex", gap: "1em"}}>
-        <label>Number of clusters:</label>
-        <input type="number"
-          defaultValue={3}
-          size={2}
-          onChange={(e) => setClusters(e.target.value)} />
-        </div>
-
+        <Clustering />
       </header>
     </div>
   );

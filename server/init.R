@@ -23,6 +23,7 @@ give.first.functions <- function()
 {
     data <- iris[, c("Sepal.Length", "Petal.Length")]
     list(
+        heartbeat = wrap.r.fun(function() TRUE),
         rversion = wrap.r.fun(function() as.character(getRversion())),
         use_module = wrap.r.fun(function(name) {
           mod_file <- sprintf("%s/%s.R", MODULE_DIR, name)

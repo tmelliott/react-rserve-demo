@@ -5,7 +5,7 @@ function Clustering() {
     const [clusters, setClusters] = useState(3);
     const [plot, setPlot] = useState("");
 
-    const R = useRserve();
+    const { R } = useRserve();
     const [mod, setMod] = useState([]);
 
     useEffect(() => {

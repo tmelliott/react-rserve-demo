@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 import Clustering from "./components/Clustering";
 
 function App() {
-  const R = useRserve();
+  const { R, connecting } = useRserve();
   const [version, setVersion] = useState("");
 
   // const [message, setMessage] = useState("")
 
   useEffect(() => {
-    if (!R || !R.running) return;
+    if (!R || !R.running) {
+      setVersion("");
+      return;
+    }
 
     R.ocap((err, funs) => {
       funs.rversion((err, value) => {
@@ -26,10 +29,10 @@ function App() {
         {version !== "" ? (
           <p>Connected to R {version}</p>
         ) : (
-          <p>Not connected to R</p>
+          <p>{connecting ? "Connecting ..." : "Not connected to R"}</p>
         )}
 
-        <Clustering />
+        {R && R.running && <Clustering />}
       </header>
     </div>
   );

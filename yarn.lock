@@ -1738,6 +1738,12 @@
   dependencies:
     underscore "^1.13.4"
 
+"@tmelliott/react-rserve@tmelliott/react-rserve":
+  version "0.1.1"
+  resolved "https://codeload.github.com/tmelliott/react-rserve/tar.gz/ddbe79a69fd693c15c671f7f50afa81cca2a11c6"
+  dependencies:
+    underscore "^1.13.4"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"

@@ -1,9 +1,16 @@
 # clustering module
 cluster_plot <- function(clusters = 3) {
+    message("Clustering with n = ", clusters, " clusters")
     t <- tempfile(fileext = ".png")
     png(file = t)
 
-    km <- kmeans(data, clusters)
+    km <- try(kmeans(data, clusters))
+    if (inherits(km, "try-error")) {
+        message("Failed ...")
+        print(head(data))
+        print(clusters)
+        return("")
+    }
     plot(data[[1]], data[[2]],
     col = km$cluster,
     pch = 19,
